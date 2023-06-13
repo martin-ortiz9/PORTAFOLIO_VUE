@@ -14,12 +14,35 @@
         const vm= Vue.createApp({
             data (){
                 return {
-                    text: " <p> hola vue web </p>"
+                    text: " <p> Martin Ortiz </p>"
                 }
             },
-            template: `<div v-html="text"></div> `
+            template: `
+            <div v-html="text"></div> 
+            <button @click= "text"
+            <div > </div>
+            
+            `
         }).mount("#app");
         console.log(vm);
     </script> 
+    <style>
+        html {
+            text-align: center;
+            -webkit-box-shadow: 1px -1px 71px -3px rgba(0,0,0,0.75);
+            -moz-box-shadow: 1px -1px 71px -3px rgba(0,0,0,0.75);
+            box-shadow: 1px -1px 71px -3px rgba(0,0,0,0.75);;
+        }
+        body{
+	        margin: 0;
+	        padding: 0;
+	        display: flex;
+	        justify-content: center;
+	        align-items: center;
+	        min-height: 100vh;
+	        font-family: 'Jost', sans-serif;
+	        background: linear-gradient(to bottom, #0e2933, #3e1921, #5d3a15);
+        }
+    </style>
 </body>
 </html>
