@@ -14,20 +14,62 @@
         const vm= Vue.createApp({
             data (){
                 return {
-                    text: " <p> Martin Ortiz </p>"
+                    text: " <h1> Login </h1>",
+                    reg: false,
+                    correo: " ",
+                    username: "usert",
+                    lall: ""
                 }
             },
+            watch: {
+                reg(value) {
+                    if (value){
+                        this.lall = "abierta";
+                    }else {
+                        this.lall ="cerrada ";
+                        this.username = "";
+                        this.correo = "" ;
+                    }
+                }
+            },
+       /*     computed: {
+
+
+            },*/
             template: `
-            <div v-html="text"></div> 
-            <button @click= "text"
-            <div > </div>
-            
+            <div class="bord">
+            <div class="log">Login</div>
+
+            <div v-if="reg">
+                hola {{ username }}, tu correo  {{correo}} quedo registrado
+                </div>
+                <div v-else>
+                 <div class="user"> Username </div>
+                 <input  type="text" v-model="username" placeholder= "user">
+                 <div  class="corr"> Correo </div>
+                 <input  type="text" v-model="correo">
+                 <div class="user"> Fecha de nacimiento
+                    <input type="datetime-local" name="Inputtime" value="2023-06-14T00:52">
+                </div>
+
+                </div>
+            <button @click= " reg = !reg">
+                <div v-if = "!reg">Registrar</div>
+                <div v-else>Atras</div>
+                </button>
+              </div>
+             
             `
         }).mount("#app");
         console.log(vm);
-    </script> 
+    </script>
+      <!-- <input type="checkbox" id="chk" aria-hidden="true"> -->
+    
+      <!-- <label for="chk" aria-hidden="true">Sign up</label> -->
+    <!-- PARA COMENTAR Y DESCOMENTAR CONTRL K +CONTROL C Y CONTROL K + OCNTROL U -->
     <style>
         html {
+            font-size: 24px;
             text-align: center;
             -webkit-box-shadow: 1px -1px 71px -3px rgba(0,0,0,0.75);
             -moz-box-shadow: 1px -1px 71px -3px rgba(0,0,0,0.75);
@@ -42,7 +84,26 @@
 	        min-height: 100vh;
 	        font-family: 'Jost', sans-serif;
 	        background: linear-gradient(to bottom, #0e2933, #3e1921, #5d3a15);
+            backdrop-filter: blur(30px);
         }
+     button{
+        width: 60%;
+        height: 40px;
+        margin: 10px auto;
+        justify-content: center;
+        display: block;
+        color: #fff;
+        background: #97A6A0;
+        font-size: 1em;
+        font-weight: bold;
+        margin-top: 20px;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        transition: 0.2s ease-in;
+        cursor: pointer;
+        opacity: 0.54;
+     }
     </style>
 </body>
 </html>
